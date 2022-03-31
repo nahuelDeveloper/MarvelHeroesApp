@@ -10,8 +10,6 @@
 		4D44C11327F602B700C15274 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D44C11227F602B700C15274 /* AppDelegate.swift */; };
 		4D44C11527F602B700C15274 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D44C11427F602B700C15274 /* SceneDelegate.swift */; };
 		4D44C11727F602B700C15274 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D44C11627F602B700C15274 /* ViewController.swift */; };
-		4D44C11A27F602B700C15274 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D44C11827F602B700C15274 /* Main.storyboard */; };
-		4D44C11D27F602B700C15274 /* MarvelHeroesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D44C11B27F602B700C15274 /* MarvelHeroesApp.xcdatamodeld */; };
 		4D44C11F27F602BC00C15274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D44C11E27F602BC00C15274 /* Assets.xcassets */; };
 		4D44C12227F602BC00C15274 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D44C12027F602BC00C15274 /* LaunchScreen.storyboard */; };
 		4D44C12D27F602BD00C15274 /* MarvelHeroesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D44C12C27F602BD00C15274 /* MarvelHeroesAppTests.swift */; };
@@ -41,8 +39,6 @@
 		4D44C11227F602B700C15274 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D44C11427F602B700C15274 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4D44C11627F602B700C15274 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4D44C11927F602B700C15274 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4D44C11C27F602B700C15274 /* MarvelHeroesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarvelHeroesApp.xcdatamodel; sourceTree = "<group>"; };
 		4D44C11E27F602BC00C15274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D44C12127F602BC00C15274 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D44C12327F602BC00C15274 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,11 +100,9 @@
 				4D44C11227F602B700C15274 /* AppDelegate.swift */,
 				4D44C11427F602B700C15274 /* SceneDelegate.swift */,
 				4D44C11627F602B700C15274 /* ViewController.swift */,
-				4D44C11827F602B700C15274 /* Main.storyboard */,
 				4D44C11E27F602BC00C15274 /* Assets.xcassets */,
 				4D44C12027F602BC00C15274 /* LaunchScreen.storyboard */,
 				4D44C12327F602BC00C15274 /* Info.plist */,
-				4D44C11B27F602B700C15274 /* MarvelHeroesApp.xcdatamodeld */,
 			);
 			path = MarvelHeroesApp;
 			sourceTree = "<group>";
@@ -236,7 +230,6 @@
 			files = (
 				4D44C12227F602BC00C15274 /* LaunchScreen.storyboard in Resources */,
 				4D44C11F27F602BC00C15274 /* Assets.xcassets in Resources */,
-				4D44C11A27F602B700C15274 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,7 +256,6 @@
 			files = (
 				4D44C11727F602B700C15274 /* ViewController.swift in Sources */,
 				4D44C11327F602B700C15274 /* AppDelegate.swift in Sources */,
-				4D44C11D27F602B700C15274 /* MarvelHeroesApp.xcdatamodeld in Sources */,
 				4D44C11527F602B700C15274 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,14 +293,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4D44C11827F602B700C15274 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D44C11927F602B700C15274 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4D44C12027F602BC00C15274 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -446,7 +430,6 @@
 				INFOPLIST_FILE = MarvelHeroesApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -474,7 +457,6 @@
 				INFOPLIST_FILE = MarvelHeroesApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -606,19 +588,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		4D44C11B27F602B700C15274 /* MarvelHeroesApp.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4D44C11C27F602B700C15274 /* MarvelHeroesApp.xcdatamodel */,
-			);
-			currentVersion = 4D44C11C27F602B700C15274 /* MarvelHeroesApp.xcdatamodel */;
-			path = MarvelHeroesApp.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 4D44C10727F602B700C15274 /* Project object */;
 }
