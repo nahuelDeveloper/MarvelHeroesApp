@@ -18,8 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     guard let windowScene = (scene as? UIWindowScene) else { return }
     
-    let homeVC = HeroesViewController()
-    let navigationController = UINavigationController(rootViewController: homeVC)
+    let heroesPresenter = HeroesPresenter(heroes: Bundle.main.decode([Hero].self, from: "marvel-characters.json"))
+    let heroesViewController = HeroesViewController(presenter: heroesPresenter)
+    let navigationController = UINavigationController(rootViewController: heroesViewController)
     navigationController.navigationBar.barStyle = .black
     
     window = UIWindow(windowScene: windowScene)

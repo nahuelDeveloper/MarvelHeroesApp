@@ -8,3 +8,19 @@
 import UIKit
 import Foundation
 
+class HeroesPresenter {
+  
+  var heroes: [Hero]
+  
+  init(heroes: [Hero]) {
+    self.heroes = heroes
+  }
+  
+  func getHeroesCount() -> Int {
+    return heroes.count
+  }
+  
+  func getHero(atIndex index: Int) -> Hero {
+    return heroes[index]
+  }
+}
