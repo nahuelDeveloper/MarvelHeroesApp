@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -14,6 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   var coordinator: MainCoordinator?
   
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    
+    let kingfisherCache = KingfisherManager.shared.cache
+    kingfisherCache.clearCache()
 
     guard let windowScene = (scene as? UIWindowScene) else { return }
     

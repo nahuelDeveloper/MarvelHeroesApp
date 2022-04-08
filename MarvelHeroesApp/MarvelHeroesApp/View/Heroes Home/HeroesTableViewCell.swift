@@ -18,7 +18,12 @@ class HeroesTableViewCell: UITableViewCell {
   
   private lazy var heroImageView: UIImageView = {
     let v = UIImageView()
-    v.image = UIImage(named: "ic_placeholder")
+    v.contentMode = .scaleAspectFit
+    v.layer.borderWidth = 5.0
+    v.layer.borderColor = UIColor.red.cgColor
+    v.layer.cornerRadius = 75
+    v.layer.masksToBounds = true
+    v.backgroundColor = UIColor.black
     return v
   }()
   
@@ -39,7 +44,7 @@ class HeroesTableViewCell: UITableViewCell {
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+    
   // MARK: - UI setup.
   
   private func setupView() {
@@ -60,6 +65,10 @@ class HeroesTableViewCell: UITableViewCell {
   
   func configure(_ hero: Hero) {
     heroNameLabel.text = hero.name
+    
+    DispatchQueue.main.async { [weak self] in
+      self?.heroImageView.loadImage(hero.getHeroThumbnailUrl())
+    }
   }
   
   // MARK: - Cell reuse.
@@ -67,6 +76,7 @@ class HeroesTableViewCell: UITableViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     
+    heroImageView.image = nil
     heroNameLabel.text = nil
   }
 }

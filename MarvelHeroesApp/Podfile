@@ -6,7 +6,14 @@ target 'MarvelHeroesApp' do
   use_frameworks!
 
   # Pods for MarvelHeroesApp
+
+  # The ultimate API for iOS & OS X Auto Layout — impressively simple, immensely powerful. Objective-C and Swift compatible.
+  # https://github.com/PureLayout/PureLayout
   pod 'PureLayout'
+
+  # Kingfisher is a powerful, pure-Swift library for downloading and caching images from the web.
+  # https://github.com/onevcat/Kingfisher
+  pod 'Kingfisher', '~> 7.0'
 
   target 'MarvelHeroesAppTests' do
     inherit! :search_paths

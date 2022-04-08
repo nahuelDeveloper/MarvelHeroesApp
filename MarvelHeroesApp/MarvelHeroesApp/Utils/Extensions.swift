@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 extension Bundle {
   
@@ -35,5 +36,30 @@ extension UIView {
     gradient.frame = self.frame
     gradient.colors = [UIColor.clear, UIColor.black].map { $0.cgColor }
     self.layer.addSublayer(gradient)
+  }
+}
+
+extension UIImageView {
+  
+  func loadImage(_ imagePath: String) {
+    guard let imageUrl = URL(string: imagePath) else { return }
+    
+    kf.indicatorType = .activity
+    if let activityIndicatorView = kf.indicator?.view as? UIActivityIndicatorView {
+      activityIndicatorView.color = UIColor.red
+    }
+    
+    kf.setImage(with: imageUrl,
+                placeholder: nil,
+                options: nil) { [weak self] result in
+      switch result {
+      case .success(let imageResult):
+        self?.image = imageResult.image
+        break
+      case .failure( _):
+        self?.image = UIImage(named: "ic_placeholder")
+        break
+      }
+    }
   }
 }
