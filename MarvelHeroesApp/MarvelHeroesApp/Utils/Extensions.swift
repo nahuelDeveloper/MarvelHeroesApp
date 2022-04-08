@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Bundle {
   
@@ -24,5 +25,15 @@ extension Bundle {
     }
     
     return result
+  }
+}
+
+extension UIView {
+  
+  func addBlackGradientLayerInForeground() {
+    let gradient = CAGradientLayer()
+    gradient.frame = self.frame
+    gradient.colors = [UIColor.clear, UIColor.black].map { $0.cgColor }
+    self.layer.addSublayer(gradient)
   }
 }

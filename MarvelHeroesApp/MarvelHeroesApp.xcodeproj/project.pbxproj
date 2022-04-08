@@ -29,6 +29,11 @@
 		4DCD147228008B63003D312C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD147128008B63003D312C /* MainCoordinator.swift */; };
 		4DCD147528008D6D003D312C /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD147428008D6D003D312C /* HeroDetailViewController.swift */; };
 		4DCD147728009467003D312C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD147628009467003D312C /* BaseViewController.swift */; };
+		4DCD147A2800B249003D312C /* HeroDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD14792800B249003D312C /* HeroDetailPresenter.swift */; };
+		4DCD147B2800B249003D312C /* HeroDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD14792800B249003D312C /* HeroDetailPresenter.swift */; };
+		4DCD147D2800B4BC003D312C /* marvel-character.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD147C2800B4BC003D312C /* marvel-character.json */; };
+		4DCD147F2800BCE8003D312C /* HeroDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD147E2800BCE8003D312C /* HeroDetailPresenterTests.swift */; };
+		4DCD14812800BCF7003D312C /* marvel-character.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DCD14802800BCF7003D312C /* marvel-character.json */; };
 		52C51227B167330E51A645F8 /* Pods_MarvelHeroesApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14DE9607E81A73B29E006D66 /* Pods_MarvelHeroesApp.framework */; };
 		97A40243104696114A967F6F /* Pods_MarvelHeroesApp_MarvelHeroesAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CFBB52DA78A99297A88C27C /* Pods_MarvelHeroesApp_MarvelHeroesAppUITests.framework */; };
 		E6C37B1455A58C21D5601A9F /* Pods_MarvelHeroesAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BCFF458B8BE3B74CD642394 /* Pods_MarvelHeroesAppTests.framework */; };
@@ -77,6 +82,10 @@
 		4DCD147128008B63003D312C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		4DCD147428008D6D003D312C /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
 		4DCD147628009467003D312C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4DCD14792800B249003D312C /* HeroDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailPresenter.swift; sourceTree = "<group>"; };
+		4DCD147C2800B4BC003D312C /* marvel-character.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "marvel-character.json"; sourceTree = "<group>"; };
+		4DCD147E2800BCE8003D312C /* HeroDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailPresenterTests.swift; sourceTree = "<group>"; };
+		4DCD14802800BCF7003D312C /* marvel-character.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "marvel-character.json"; sourceTree = "<group>"; };
 		7BCFF458B8BE3B74CD642394 /* Pods_MarvelHeroesAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelHeroesAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		859937D9359FF6CD37250166 /* Pods-MarvelHeroesApp-MarvelHeroesAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroesApp-MarvelHeroesAppUITests.release.xcconfig"; path = "Target Support Files/Pods-MarvelHeroesApp-MarvelHeroesAppUITests/Pods-MarvelHeroesApp-MarvelHeroesAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BC3C04E57A849769C20489D4 /* Pods-MarvelHeroesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelHeroesApp.debug.xcconfig"; path = "Target Support Files/Pods-MarvelHeroesApp/Pods-MarvelHeroesApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +149,7 @@
 		4D11518D27FA8238000FF0B4 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				4DCD147C2800B4BC003D312C /* marvel-character.json */,
 				4D11518E27FA8254000FF0B4 /* marvel-characters.json */,
 			);
 			path = Mocks;
@@ -170,8 +180,6 @@
 		4D44C11127F602B700C15274 /* MarvelHeroesApp */ = {
 			isa = PBXGroup;
 			children = (
-				4D11518D27FA8238000FF0B4 /* Mocks */,
-				4D44C17127F6486A00C15274 /* Utils */,
 				4D44C11227F602B700C15274 /* AppDelegate.swift */,
 				4D44C11427F602B700C15274 /* SceneDelegate.swift */,
 				4D44C11E27F602BC00C15274 /* Assets.xcassets */,
@@ -181,6 +189,7 @@
 				4D44C16527F6441600C15274 /* View */,
 				4D44C16927F644E200C15274 /* Presenter */,
 				4DCD146E280089F7003D312C /* Navigation */,
+				4D44C17127F6486A00C15274 /* Utils */,
 			);
 			path = MarvelHeroesApp;
 			sourceTree = "<group>";
@@ -191,6 +200,7 @@
 				4D44C16E27F6483D00C15274 /* Mocks */,
 				4D44C12C27F602BD00C15274 /* MarvelHeroesAppTests.swift */,
 				4D11519127FA8652000FF0B4 /* HeroesPresenterTests.swift */,
+				4DCD147E2800BCE8003D312C /* HeroDetailPresenterTests.swift */,
 			);
 			path = MarvelHeroesAppTests;
 			sourceTree = "<group>";
@@ -207,9 +217,9 @@
 		4D44C16527F6441600C15274 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4DCD147628009467003D312C /* BaseViewController.swift */,
 				4DCD1478280095A2003D312C /* Heroes Home */,
 				4DCD147328008D49003D312C /* Hero Detail */,
-				4DCD147628009467003D312C /* BaseViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				4D44C16A27F6451500C15274 /* HeroesPresenter.swift */,
+				4DCD14792800B249003D312C /* HeroDetailPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -233,6 +244,7 @@
 		4D44C16E27F6483D00C15274 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				4DCD14802800BCF7003D312C /* marvel-character.json */,
 				4D44C16F27F6485D00C15274 /* characters.json */,
 			);
 			path = Mocks;
@@ -241,6 +253,7 @@
 		4D44C17127F6486A00C15274 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4D11518D27FA8238000FF0B4 /* Mocks */,
 				4D44C17227F6487D00C15274 /* Extensions.swift */,
 			);
 			path = Utils;
@@ -383,6 +396,7 @@
 			files = (
 				4D44C12227F602BC00C15274 /* LaunchScreen.storyboard in Resources */,
 				4D11518F27FA8254000FF0B4 /* marvel-characters.json in Resources */,
+				4DCD147D2800B4BC003D312C /* marvel-character.json in Resources */,
 				4D44C11F27F602BC00C15274 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +405,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DCD14812800BCF7003D312C /* marvel-character.json in Resources */,
 				4D44C17027F6485D00C15274 /* characters.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +536,7 @@
 				4D44C16727F6443A00C15274 /* HeroesViewController.swift in Sources */,
 				4D44C11327F602B700C15274 /* AppDelegate.swift in Sources */,
 				4D44C16B27F6451500C15274 /* HeroesPresenter.swift in Sources */,
+				4DCD147A2800B249003D312C /* HeroDetailPresenter.swift in Sources */,
 				4DCD147228008B63003D312C /* MainCoordinator.swift in Sources */,
 				4D44C11527F602B700C15274 /* SceneDelegate.swift in Sources */,
 			);
@@ -531,8 +547,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D11519427FA87AD000FF0B4 /* Hero.swift in Sources */,
+				4DCD147F2800BCE8003D312C /* HeroDetailPresenterTests.swift in Sources */,
 				4D44C12D27F602BD00C15274 /* MarvelHeroesAppTests.swift in Sources */,
 				4D44C17427F6487D00C15274 /* Extensions.swift in Sources */,
+				4DCD147B2800B249003D312C /* HeroDetailPresenter.swift in Sources */,
 				4D11519327FA86F6000FF0B4 /* HeroesPresenter.swift in Sources */,
 				4D11519227FA8652000FF0B4 /* HeroesPresenterTests.swift in Sources */,
 			);
