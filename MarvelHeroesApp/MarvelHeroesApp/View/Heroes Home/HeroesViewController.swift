@@ -8,7 +8,7 @@
 import UIKit
 import PureLayout
 
-class HeroesViewController: UIViewController {
+class HeroesViewController: BaseViewController {
   
   private var presenter: HeroesPresenter
   
@@ -61,6 +61,7 @@ class HeroesViewController: UIViewController {
     tableView.register(HeroesTableViewCell.self, forCellReuseIdentifier: HeroesTableViewCell.reuseIdentifier)
     
     tableView.dataSource = self
+    tableView.delegate = self
   }
 }
 
@@ -76,5 +77,14 @@ extension HeroesViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: HeroesTableViewCell.reuseIdentifier) as! HeroesTableViewCell
     cell.configure(presenter.getHero(atIndex: indexPath.row))
     return cell
+  }
+}
+
+// MARK: - UITableViewDelegate
+
+extension HeroesViewController: UITableViewDelegate {
+  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    coordinator?.showHeroDetailScreen()
   }
 }
