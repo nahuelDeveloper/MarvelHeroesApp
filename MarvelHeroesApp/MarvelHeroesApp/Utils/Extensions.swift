@@ -41,7 +41,17 @@ extension UIView {
 
 extension UIImageView {
   
+  typealias LoadImageResult = ((UIImage?)->())
+  
   func loadImage(_ imagePath: String) {
+    loadImage(imagePath, completion: nil)
+  }
+  
+  func loadImageWithCompletionHandler(_ imagePath: String, completion: LoadImageResult?) {
+    loadImage(imagePath, completion: completion)
+  }
+  
+  private func loadImage(_ imagePath: String, completion: LoadImageResult?) {
     guard let imageUrl = URL(string: imagePath) else { return }
     
     kf.indicatorType = .activity
@@ -55,11 +65,20 @@ extension UIImageView {
       switch result {
       case .success(let imageResult):
         self?.image = imageResult.image
+        completion?(imageResult.image)
         break
       case .failure( _):
         self?.image = UIImage(named: "ic_placeholder")
+        completion?(nil)
         break
       }
     }
+  }
+}
+
+extension UIImage {
+  
+  var ratio: CGFloat {
+    return size.width / size.height
   }
 }

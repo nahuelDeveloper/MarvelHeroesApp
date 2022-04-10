@@ -16,9 +16,7 @@ class HeroDetailViewController: BaseViewController {
   
   lazy var heroImageView: UIImageView = {
     let v = UIImageView()
-//    v.contentMode = .scaleAspectFill
     v.contentMode = .scaleAspectFit
-    v.image = UIImage(named: "ic_placeholder")
     return v
   }()
   
@@ -43,7 +41,7 @@ class HeroDetailViewController: BaseViewController {
     v.numberOfLines = 8
     return v
   }()
-  
+    
   // MARK: - Init.
   
   init(presenter: HeroDetailPresenter) {
@@ -65,10 +63,11 @@ class HeroDetailViewController: BaseViewController {
   private func setupView() {
     view.addSubview(heroImageView)
     
-    heroImageView.autoPinEdgesToSuperviewEdges()
+    heroImageView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
+    heroImageView.autoSetDimension(.height, toSize: UIScreen.main.bounds.width)
     
     view.addSubview(heroInfoStackView)
-    heroInfoStackView.autoPinEdge(.top, to: .top, of: view, withOffset: UIScreen.main.bounds.height * 0.6)
+    heroInfoStackView.autoPinEdge(.top, to: .bottom, of: heroImageView, withOffset: 30.0)
     heroInfoStackView.autoPinEdge(.leading, to: .leading, of: view, withOffset: 30.0)
     heroInfoStackView.autoPinEdge(.trailing, to: .trailing, of: view, withOffset: -30.0)
     heroInfoStackView.autoPinEdge(.bottom, to: .bottom, of: view, withOffset: -30.0)
@@ -97,5 +96,7 @@ class HeroDetailViewController: BaseViewController {
     
     heroNameLabel.text = presenter.getHeroName()
     heroDescriptionLabel.text = presenter.getHeroDescription()
+
+    heroImageView.loadImage(presenter.getHeroImage())
   }
 }

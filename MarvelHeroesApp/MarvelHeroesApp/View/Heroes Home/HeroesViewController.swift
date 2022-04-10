@@ -85,6 +85,6 @@ extension HeroesViewController: UITableViewDataSource {
 extension HeroesViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    coordinator?.showHeroDetailScreen()
+    coordinator?.showHeroDetailScreen(presenter.getHero(atIndex: indexPath.row))
   }
 }

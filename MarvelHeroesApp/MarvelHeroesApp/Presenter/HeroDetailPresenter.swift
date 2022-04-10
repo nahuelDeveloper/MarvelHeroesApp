@@ -22,4 +22,8 @@ class HeroDetailPresenter {
   func getHeroDescription() -> String {
     return hero.description
   }
+  
+  func getHeroImage() -> String {
+    return hero.getHeroThumbnailUrl()
+  }
 }
