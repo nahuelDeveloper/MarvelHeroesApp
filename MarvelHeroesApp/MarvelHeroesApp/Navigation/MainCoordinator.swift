@@ -22,8 +22,8 @@ class MainCoordinator: Coordinator {
     navigationController.pushViewController(heroesViewController, animated: false)
   }
   
-  func showHeroDetailScreen() {
-    let heroDetailPresenter = HeroDetailPresenter(hero: Bundle.main.decode(Hero.self, from: "marvel-character.json"))
+  func showHeroDetailScreen(_ hero: Hero) {
+    let heroDetailPresenter = HeroDetailPresenter(hero: hero)
     let heroDetailVC = HeroDetailViewController(presenter: heroDetailPresenter)
     heroDetailVC.coordinator = self
     navigationController.pushViewController(heroDetailVC, animated: true)

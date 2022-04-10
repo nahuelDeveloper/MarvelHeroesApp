@@ -14,5 +14,5 @@ protocol Coordinator {
 
   func start()
   
-  func showHeroDetailScreen()
+  func showHeroDetailScreen(_ hero: Hero)
 }

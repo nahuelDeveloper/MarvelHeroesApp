@@ -16,14 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     
+    // TODO: Delete.
     let kingfisherCache = KingfisherManager.shared.cache
     kingfisherCache.clearCache()
 
     guard let windowScene = (scene as? UIWindowScene) else { return }
     
-    let navigationController = UINavigationController()
-    navigationController.navigationBar.barStyle = .black
-    
+    let navigationController = HeroesNavigationController()
     coordinator = MainCoordinator(navigationController: navigationController)
     coordinator?.start()
     
@@ -33,4 +32,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   }
 
 }
-
