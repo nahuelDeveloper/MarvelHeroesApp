@@ -13,9 +13,7 @@ enum MarvelAPIError: Error {
   case apiFailure
 }
 
-class NetworkManager {
-  
-  typealias HeroesResult = (Result<[Hero], Error>)->()
+final class NetworkManager {
   
   static let shared = NetworkManager()
   
@@ -28,6 +26,11 @@ class NetworkManager {
     provider = MoyaProvider<MarvelAPI>(plugins: [plugin])
     decoder = JSONDecoder()
   }
+}
+
+extension NetworkManager {
+  
+  typealias HeroesResult = (Result<[Hero], Error>)->()
   
   func getHeroes(result: @escaping HeroesResult) {
     provider.request(.getCharacters) { [unowned self] moyaResult in
