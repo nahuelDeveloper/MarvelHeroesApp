@@ -7,6 +7,7 @@
 
 import UIKit
 import PureLayout
+import Moya
 
 class HeroesViewController: BaseViewController {
   
@@ -53,6 +54,17 @@ class HeroesViewController: BaseViewController {
     self.title = "Marvel Heroes App"
         
     configureTableView()
+    
+    NetworkManager.shared.getHeroes { result in
+      switch result {
+      case .success(let heroes):
+        print("Habemus heroes: \(heroes.count)")
+        break
+      case .failure(let error):
+        print("Habemus error: \(error)")
+        break
+      }
+    }
   }
   
   // MARK: - UI config.

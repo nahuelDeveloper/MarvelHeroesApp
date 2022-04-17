@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '15.4'
 
 target 'MarvelHeroesApp' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -14,6 +14,10 @@ target 'MarvelHeroesApp' do
   # Kingfisher is a powerful, pure-Swift library for downloading and caching images from the web.
   # https://github.com/onevcat/Kingfisher
   pod 'Kingfisher', '~> 7.0'
+
+  # Network abstraction layer written in Swift.
+  # https://github.com/Moya/Moya
+  pod 'Moya', '~> 15.0'
 
   target 'MarvelHeroesAppTests' do
     inherit! :search_paths
