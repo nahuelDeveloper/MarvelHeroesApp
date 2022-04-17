@@ -19,5 +19,5 @@ struct MarvelAPIResponseData<T: Codable>: Codable {
   let limit: Int
   let total: Int
   let count: Int
-  let result: [T]
+  let results: [T]
 }

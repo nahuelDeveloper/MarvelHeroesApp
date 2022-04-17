@@ -35,11 +35,11 @@ class NetworkManager {
       case let .success(response):
         do {
           let marvelAPIResponse = try self.decoder.decode(MarvelAPIResponse<Hero>.self, from: response.data)
-          let heroes = marvelAPIResponse.data.result
+          let heroes = marvelAPIResponse.data.results
           result(.success(heroes))
         }
         catch {
-          print("Moya error: \(error.localizedDescription)")
+          print("Moya error: \(error)")
           result(.failure(MarvelAPIError.apiError))
         }
         break

@@ -10,13 +10,15 @@ import XCTest
 
 class MarvelHeroesAppTests: XCTestCase {
   
-  
-
   func test_parseCharacters() {
     let characters = testBundle.decode([Hero].self, from: "characters.json")
     XCTAssertEqual(characters.count, 20)
   }
-
+  
+  func test_parseAPIResponse() {
+    let heroes = testBundle.decode(MarvelAPIResponse<Hero>.self, from: "marvel-api-response.json")
+    XCTAssertEqual(heroes.data.results.count, 1)
+  }
 }
 
 extension XCTestCase {

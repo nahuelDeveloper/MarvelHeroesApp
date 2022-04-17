@@ -9,10 +9,10 @@ import Foundation
 
 struct Hero: Codable {
   
-  var id: Int
-  var name: String
-  var description: String
-  var thumbnail: Thumbnail
+  let id: Int
+  let name: String
+  let description: String
+  let thumbnail: Thumbnail
   
   func getHeroThumbnailUrl() -> String {
     return "\(thumbnail.path).\(thumbnail.thumbnailExtension)"
