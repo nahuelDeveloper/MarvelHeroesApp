@@ -85,7 +85,6 @@ extension HeroesViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     if indexPath.row + 1 == presenter.getHeroesCount() {
-      print("Table view scrolled to end")
       presenter.fetchHeroes()
     }
   }

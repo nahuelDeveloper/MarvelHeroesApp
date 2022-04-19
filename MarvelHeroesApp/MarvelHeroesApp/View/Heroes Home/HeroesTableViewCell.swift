@@ -30,6 +30,8 @@ class HeroesTableViewCell: UITableViewCell {
   private lazy var heroNameLabel: UILabel = {
     let v = UILabel()
     v.font = UIFont.systemFont(ofSize: 24)
+    v.textAlignment = .center
+    v.numberOfLines = 0
     return v
   }()
     
@@ -61,7 +63,8 @@ class HeroesTableViewCell: UITableViewCell {
     heroImageView.autoSetDimension(.height, toSize: 150)
     
     heroNameLabel.autoPinEdge(.top, to: .bottom, of: heroImageView, withOffset: 20)
-    heroNameLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+    heroNameLabel.autoPinEdge(.leading, to: .leading, of: contentView, withOffset: 50)
+    heroNameLabel.autoPinEdge(.trailing, to: .trailing, of: contentView, withOffset: -50)
     heroNameLabel.autoPinEdge(.bottom, to: .bottom, of: contentView, withOffset: -20)
   }
   
