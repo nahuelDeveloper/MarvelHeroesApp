@@ -14,6 +14,16 @@ class HeroDetailViewController: BaseViewController {
   
   // MARK: - UI props.
   
+  lazy var scrollView: UIScrollView = {
+    let v = UIScrollView()
+    return v
+  }()
+  
+  lazy var containerView: UIView = {
+    let v = UIView()
+    return v
+  }()
+  
   lazy var heroImageView: UIImageView = {
     let v = UIImageView()
     v.contentMode = .scaleAspectFit
@@ -38,7 +48,7 @@ class HeroDetailViewController: BaseViewController {
     let v = UILabel()
     v.textColor = .white
     v.font = UIFont.systemFont(ofSize: 16.0)
-    v.numberOfLines = 8
+    v.numberOfLines = 0
     return v
   }()
     
@@ -61,22 +71,29 @@ class HeroDetailViewController: BaseViewController {
   }
   
   private func setupView() {
-    view.addSubview(heroImageView)
+    view.addSubview(scrollView)
+    scrollView.autoPinEdgesToSuperviewEdges()
+    scrollView.autoSetDimension(.width, toSize: view.bounds.width)
     
+    scrollView.addSubview(containerView)
+    containerView.autoPinEdgesToSuperviewEdges()
+    containerView.autoMatch(.width, to: .width, of: scrollView)
+    
+    containerView.addSubview(heroImageView)
     heroImageView.autoPinEdgesToSuperviewEdges(with: .zero, excludingEdge: .bottom)
     heroImageView.autoSetDimension(.height, toSize: UIScreen.main.bounds.width)
     
-    view.addSubview(heroInfoStackView)
+    containerView.addSubview(heroInfoStackView)
     heroInfoStackView.autoPinEdge(.top, to: .bottom, of: heroImageView, withOffset: 30.0)
-    heroInfoStackView.autoPinEdge(.leading, to: .leading, of: view, withOffset: 30.0)
-    heroInfoStackView.autoPinEdge(.trailing, to: .trailing, of: view, withOffset: -30.0)
-    heroInfoStackView.autoPinEdge(.bottom, to: .bottom, of: view, withOffset: -30.0)
+    heroInfoStackView.autoPinEdge(.leading, to: .leading, of: containerView, withOffset: 30.0)
+    heroInfoStackView.autoPinEdge(.trailing, to: .trailing, of: containerView, withOffset: -30.0)
+    heroInfoStackView.autoPinEdge(.bottom, to: .bottom, of: containerView, withOffset: -30.0)
     
     heroInfoStackView.addArrangedSubview(heroNameLabel)
     heroInfoStackView.addArrangedSubview(heroDescriptionLabel)
     heroInfoStackView.addArrangedSubview(UIView())
   }
-    
+  
   // MARK: - View Controller life cycle.
   
   override func viewDidLoad() {
