@@ -82,6 +82,13 @@ extension HeroesViewController: UITableViewDataSource {
     cell.configure(presenter.getHero(atIndex: indexPath.row))
     return cell
   }
+  
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.row + 1 == presenter.getHeroesCount() {
+      print("Table view scrolled to end")
+      presenter.fetchHeroes()
+    }
+  }
 }
 
 // MARK: - UITableViewDelegate
@@ -93,10 +100,10 @@ extension HeroesViewController: UITableViewDelegate {
   }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - HeroesPresenterDelegate
 
 extension HeroesViewController: HeroesPresenterDelegate {
-  
+    
   func showLoader(_ presenter: HeroesPresenter) {
     showLoader()
   }
@@ -112,5 +119,4 @@ extension HeroesViewController: HeroesPresenterDelegate {
   func showError(_ presenter: HeroesPresenter, errorMessage: String) {
     showError(errorMessage: errorMessage)
   }
-  
 }

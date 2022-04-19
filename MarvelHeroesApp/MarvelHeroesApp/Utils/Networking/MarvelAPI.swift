@@ -23,6 +23,8 @@ private let getCharactersEndpoint = "v1/public/characters"
 private let kAuthParamsDictApiKey = "apikey"
 private let kAuthParamsDictHash = "hash"
 private let kAuthParamsDictTimestamp = "ts"
+private let kParamsDictOffset = "offset"
+private let kParamsDictLimit = "limit"
 
 private let kHeadersContentTypeKey = "Content-type"
 private let kHeadersContentTypeValue = "application/json"
@@ -33,7 +35,7 @@ private let kMd5format = "%02hhx"
 // MARK: - Moya setup.
 
 enum MarvelAPI {
-  case getCharacters
+  case getCharacters(offset: Int, limit: Int)
   
   private var apiKey: String {
     return publicKey
@@ -81,8 +83,13 @@ extension MarvelAPI: TargetType {
   
   var task: Task {
     switch self {
-    case .getCharacters:
-      return .requestParameters(parameters: authParams, encoding: URLEncoding.queryString)
+    case .getCharacters(let offset, let limit):
+      var params = [
+        kParamsDictOffset: String(offset),
+        kParamsDictLimit: String(limit)
+      ]
+      params.merge(with: authParams)
+      return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
     }
   }
   
@@ -92,7 +99,13 @@ extension MarvelAPI: TargetType {
 }
 
 extension String {
-    func md5() -> String {
-        return Insecure.MD5.hash(data: self.data(using: .utf8)!).map { String(format: kMd5format, $0) }.joined()
-    }
+  func md5() -> String {
+    return Insecure.MD5.hash(data: self.data(using: .utf8)!).map { String(format: kMd5format, $0) }.joined()
+  }
+}
+
+extension Dictionary {
+  mutating func merge(with dictionary: Dictionary) {
+    dictionary.forEach { updateValue($1, forKey: $0) }
+  }
 }

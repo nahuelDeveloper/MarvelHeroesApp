@@ -17,7 +17,7 @@ protocol HeroesPresenterDelegate: AnyObject {
 class HeroesPresenter {
   
   var heroes: [Hero] = []
-  
+    
   weak var delegate: HeroesPresenterDelegate?
   
   init() {}
@@ -35,7 +35,7 @@ class HeroesPresenter {
       
       switch result {
       case .success(let heroes):
-        strongSelf.heroes = heroes
+        strongSelf.heroes += heroes
         strongSelf.delegate?.loadedHeroes(strongSelf, heroes: heroes)
         break
       case .failure(let error):
@@ -44,7 +44,7 @@ class HeroesPresenter {
       }
     }
   }
-  
+    
   func getHeroesCount() -> Int {
     return heroes.count
   }
