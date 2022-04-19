@@ -19,6 +19,10 @@ target 'MarvelHeroesApp' do
   # https://github.com/Moya/Moya
   pod 'Moya', '~> 15.0'
 
+  # An elegant and simple progress HUD for iOS and tvOS.
+  # https://github.com/JonasGessner/JGProgressHUD
+  pod 'JGProgressHUD'
+
   target 'MarvelHeroesAppTests' do
     inherit! :search_paths
     # Pods for testing

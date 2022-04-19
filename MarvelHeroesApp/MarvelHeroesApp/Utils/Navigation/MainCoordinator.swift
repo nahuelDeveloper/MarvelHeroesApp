@@ -16,7 +16,7 @@ class MainCoordinator: Coordinator {
   }
 
   func start() {
-    let heroesPresenter = HeroesPresenter(heroes: Bundle.main.decode([Hero].self, from: "marvel-characters.json"))
+    let heroesPresenter = HeroesPresenter()
     let heroesViewController = HeroesViewController(presenter: heroesPresenter)
     heroesViewController.coordinator = self
     navigationController.pushViewController(heroesViewController, animated: false)

@@ -55,16 +55,8 @@ class HeroesViewController: BaseViewController {
         
     configureTableView()
     
-    NetworkManager.shared.getHeroes { result in
-      switch result {
-      case .success(let heroes):
-        print("Habemus heroes: \(heroes.count)")
-        break
-      case .failure(let error):
-        print("Habemus error: \(error)")
-        break
-      }
-    }
+    presenter.delegate = self
+    presenter.fetchHeroes()
   }
   
   // MARK: - UI config.
@@ -99,4 +91,26 @@ extension HeroesViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     coordinator?.showHeroDetailScreen(presenter.getHero(atIndex: indexPath.row))
   }
+}
+
+// MARK: - UITableViewDelegate
+
+extension HeroesViewController: HeroesPresenterDelegate {
+  
+  func showLoader(_ presenter: HeroesPresenter) {
+    showLoader()
+  }
+  
+  func hideLoader(_ presenter: HeroesPresenter) {
+    hideLoader()
+  }
+  
+  func loadedHeroes(_ presenter: HeroesPresenter, heroes: [Hero]) {
+    tableView.reloadData()
+  }
+  
+  func showError(_ presenter: HeroesPresenter, errorMessage: String) {
+    showError(errorMessage: errorMessage)
+  }
+  
 }

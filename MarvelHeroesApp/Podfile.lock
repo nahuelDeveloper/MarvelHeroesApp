@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.5.0)
+  - JGProgressHUD (2.2)
   - Kingfisher (7.2.0)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
@@ -8,6 +9,7 @@ PODS:
   - PureLayout (3.1.9)
 
 DEPENDENCIES:
+  - JGProgressHUD
   - Kingfisher (~> 7.0)
   - Moya (~> 15.0)
   - PureLayout
@@ -15,16 +17,18 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - JGProgressHUD
     - Kingfisher
     - Moya
     - PureLayout
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   PureLayout: 5fb5e5429519627d60d079ccb1eaa7265ce7cf88
 
-PODFILE CHECKSUM: 075161d8f0b4993481bc5c10a102092e7436f267
+PODFILE CHECKSUM: 5b26f7f9d6637e9ec376fc15873c58aa7aff09ef
 
 COCOAPODS: 1.11.2
