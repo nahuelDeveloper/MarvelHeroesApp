@@ -12,6 +12,7 @@ struct Theme {
   struct Colors {
     static var main: UIColor { Palette.marvelRed }
     static var secondary: UIColor { Palette.marvelDarkGray }
+    static var primaryText: UIColor { .white }
   }
   
   private struct Palette {

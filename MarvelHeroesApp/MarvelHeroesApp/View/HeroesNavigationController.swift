@@ -15,6 +15,7 @@ class HeroesNavigationController: UINavigationController {
     navigationBar.barStyle = .black
     navigationBar.isTranslucent = false
     navigationBar.backgroundColor = Theme.Colors.main
+    navigationBar.tintColor = Theme.Colors.primaryText
     
     let navBarAppearance = UINavigationBarAppearance()
     navBarAppearance.configureWithOpaqueBackground()
