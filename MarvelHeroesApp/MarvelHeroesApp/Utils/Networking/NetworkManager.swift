@@ -8,12 +8,6 @@
 import Foundation
 import Moya
 
-enum MarvelAPIError: Error {
-  case apiError
-  case apiFailure
-  case reachedFinalPage
-}
-
 final class NetworkManager {
   
   struct HeroesPaginator {
@@ -23,10 +17,10 @@ final class NetworkManager {
     
     mutating func moveToNextPage(currentPageCount: Int) {
       if currentPageCount == limit {
+        // Move to next page.
         offset += limit
-        print("Move to page: \(offset/limit)")
       } else {
-        print("Move to final page")
+        // Moved to final page.
         reachedFinalPage = true
       }
     }
@@ -49,11 +43,10 @@ final class NetworkManager {
 
 extension NetworkManager {
   
-  typealias HeroesResult = (Result<[Hero], Error>)->()
+  typealias HeroesResult = (Result<[Hero], MarvelAPIError>)->()
   
   func getHeroes(result: @escaping HeroesResult) {
     if heroesPaginator.reachedFinalPage {
-      print("Reached final page")
       result(.failure(MarvelAPIError.reachedFinalPage))
       return
     }
@@ -65,6 +58,12 @@ extension NetworkManager {
       switch moyaResult {
       case let .success(response):
         do {
+          guard (200 ..< 300).contains(response.statusCode) else {
+            let errorResponse = try self.decoder.decode(MarvelAPIErrorResponse.self, from: response.data)
+            result(.failure(MarvelAPIError.apiError(errorResponse: errorResponse)))
+            return
+          }
+          
           let marvelAPIResponse = try self.decoder.decode(MarvelAPIResponse<Hero>.self, from: response.data)
           let heroes = marvelAPIResponse.data.results
           heroesPaginator.moveToNextPage(currentPageCount: heroes.count)
@@ -72,7 +71,7 @@ extension NetworkManager {
         }
         catch {
           print("Moya error: \(error)")
-          result(.failure(MarvelAPIError.apiError))
+          result(.failure(MarvelAPIError.apiGenericError))
         }
         break
       case let .failure(error):

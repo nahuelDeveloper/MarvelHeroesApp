@@ -39,7 +39,7 @@ class HeroesPresenter {
         strongSelf.delegate?.loadedHeroes(strongSelf, heroes: heroes)
         break
       case .failure(let error):
-        strongSelf.delegate?.showError(strongSelf, errorMessage: error.localizedDescription)
+        strongSelf.delegate?.showError(strongSelf, errorMessage: error.errorMessage)
         break
       }
     }

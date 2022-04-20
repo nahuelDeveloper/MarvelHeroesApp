@@ -33,10 +33,14 @@ class BaseViewController: UIViewController {
   }
   
   func showError(errorMessage: String) {
-    let errorHUD = JGProgressHUD()
-    errorHUD.textLabel.text = "Error"
-    errorHUD.indicatorView = JGProgressHUDErrorIndicatorView()
-    errorHUD.show(in: view)
-    errorHUD.dismiss(afterDelay: 3.0)
+    let alert = UIAlertController(
+      title: "Error",
+      message: errorMessage,
+      preferredStyle: .alert)
+    let acceptAction = UIAlertAction(
+      title: "Ok",
+      style: .cancel)
+    alert.addAction(acceptAction)
+    navigationController?.present(alert, animated: true)
   }
 }

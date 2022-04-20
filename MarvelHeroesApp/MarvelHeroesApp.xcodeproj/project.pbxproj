@@ -34,6 +34,8 @@
 		4D890708280BACA4002CB00F /* MarvelAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D890707280BACA4002CB00F /* MarvelAPIResponse.swift */; };
 		4D890709280BACA4002CB00F /* MarvelAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D890707280BACA4002CB00F /* MarvelAPIResponse.swift */; };
 		4D89070B280BB43D002CB00F /* marvel-api-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D89070A280BB43D002CB00F /* marvel-api-response.json */; };
+		4D958964280F60ED00F2560C /* MarvelAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D958963280F60ED00F2560C /* MarvelAPIError.swift */; };
+		4DB5ED1328107711001E24CF /* MarvelAPIErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5ED1228107711001E24CF /* MarvelAPIErrorResponse.swift */; };
 		4DCD147028008ACD003D312C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD146F28008ACD003D312C /* Coordinator.swift */; };
 		4DCD147228008B63003D312C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD147128008B63003D312C /* MainCoordinator.swift */; };
 		4DCD147528008D6D003D312C /* HeroDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD147428008D6D003D312C /* HeroDetailViewController.swift */; };
@@ -96,6 +98,8 @@
 		4D890705280BA8EE002CB00F /* MarvelAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPI.swift; sourceTree = "<group>"; };
 		4D890707280BACA4002CB00F /* MarvelAPIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIResponse.swift; sourceTree = "<group>"; };
 		4D89070A280BB43D002CB00F /* marvel-api-response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "marvel-api-response.json"; sourceTree = "<group>"; };
+		4D958963280F60ED00F2560C /* MarvelAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIError.swift; sourceTree = "<group>"; };
+		4DB5ED1228107711001E24CF /* MarvelAPIErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelAPIErrorResponse.swift; sourceTree = "<group>"; };
 		4DCD146F28008ACD003D312C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		4DCD147128008B63003D312C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		4DCD147428008D6D003D312C /* HeroDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +184,9 @@
 			children = (
 				4D2624142805106E0096692E /* NetworkManager.swift */,
 				4D890705280BA8EE002CB00F /* MarvelAPI.swift */,
+				4D890707280BACA4002CB00F /* MarvelAPIResponse.swift */,
+				4D958963280F60ED00F2560C /* MarvelAPIError.swift */,
+				4DB5ED1228107711001E24CF /* MarvelAPIErrorResponse.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -259,7 +266,6 @@
 			children = (
 				4D44C16C27F6453100C15274 /* Hero.swift */,
 				4DCD14822800C748003D312C /* Thumbnail.swift */,
-				4D890707280BACA4002CB00F /* MarvelAPIResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DCD147028008ACD003D312C /* Coordinator.swift in Sources */,
+				4DB5ED1328107711001E24CF /* MarvelAPIErrorResponse.swift in Sources */,
 				4DCD147528008D6D003D312C /* HeroDetailViewController.swift in Sources */,
 				4DCD147728009467003D312C /* BaseViewController.swift in Sources */,
 				4D44C16D27F6453100C15274 /* Hero.swift in Sources */,
@@ -582,6 +589,7 @@
 				4D4D4DA3280146AC00F6ABF4 /* Theme.swift in Sources */,
 				4D4D4DA12801462000F6ABF4 /* HeroesNavigationController.swift in Sources */,
 				4D44C11527F602B700C15274 /* SceneDelegate.swift in Sources */,
+				4D958964280F60ED00F2560C /* MarvelAPIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
