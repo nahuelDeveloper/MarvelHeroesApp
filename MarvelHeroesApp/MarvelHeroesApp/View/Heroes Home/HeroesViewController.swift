@@ -17,6 +17,7 @@ class HeroesViewController: BaseViewController {
   
   private lazy var tableView: UITableView = {
     let v = UITableView()
+    v.backgroundColor = Theme.Colors.secondary
     v.rowHeight = UITableView.automaticDimension
     v.estimatedRowHeight = 200
     return v

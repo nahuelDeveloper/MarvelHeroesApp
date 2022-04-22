@@ -16,7 +16,7 @@ struct Theme {
   }
   
   private struct Palette {
-    static var marvelRed: UIColor { hexStringToUIColor(hex: "#DA3831") }
+    static var marvelRed: UIColor { hexStringToUIColor(hex: "#E3001C") }
     static var marvelDarkGray: UIColor { hexStringToUIColor(hex: "#202020") }
   }
   

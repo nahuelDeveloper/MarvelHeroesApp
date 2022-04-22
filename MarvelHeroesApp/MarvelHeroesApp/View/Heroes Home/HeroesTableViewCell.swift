@@ -20,7 +20,7 @@ class HeroesTableViewCell: UITableViewCell {
     let v = UIImageView()
     v.contentMode = .scaleAspectFit
     v.layer.borderWidth = 5.0
-    v.layer.borderColor = UIColor.red.cgColor
+    v.layer.borderColor = Theme.Colors.main.cgColor
     v.layer.cornerRadius = 75
     v.layer.masksToBounds = true
     v.backgroundColor = UIColor.black
@@ -73,8 +73,8 @@ class HeroesTableViewCell: UITableViewCell {
   func configure(_ hero: Hero) {
     heroNameLabel.text = hero.name
     
-    DispatchQueue.main.async { [weak self] in
-      self?.heroImageView.loadImage(hero.getHeroThumbnailUrl())
+    DispatchQueue.main.async {
+      self.heroImageView.loadImage(hero.getHeroThumbnailUrl())
     }
   }
   
