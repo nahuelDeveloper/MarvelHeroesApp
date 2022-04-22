@@ -22,6 +22,35 @@ class HeroesViewController: BaseViewController {
     return v
   }()
   
+  private lazy var emptyHeroesViewTitle: UILabel = {
+    let v = UILabel()
+    v.text = "No heroes found, the world is in danger!!!\n\nTo search for heroes again, press the button"
+    v.textAlignment = .center
+    v.font = UIFont.systemFont(ofSize: 24)
+    v.numberOfLines = 0
+    return v
+  }()
+  
+  private lazy var emptyHeroesViewButton: UIButton = {
+    let v = UIButton(type: .system)
+    v.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+    v.setTitle("Find Heroes", for: .normal)
+    v.backgroundColor = Theme.Colors.main
+    v.setTitleColor(Theme.Colors.primaryText, for: .normal)
+    v.layer.cornerRadius = 5
+    v.layer.masksToBounds = true
+    return v
+  }()
+  
+  private lazy var emptyHeroesView: UIStackView = {
+    let v = UIStackView()
+    v.axis = .vertical
+    v.spacing = 30
+    v.addArrangedSubview(emptyHeroesViewTitle)
+    v.addArrangedSubview(emptyHeroesViewButton)
+    return v
+  }()
+  
   // MARK: - Init.
   
   init(presenter: HeroesPresenter) {
@@ -42,8 +71,12 @@ class HeroesViewController: BaseViewController {
   
   private func setupView() {
     view.addSubview(tableView)
-    
     tableView.autoPinEdgesToSuperviewEdges()
+    
+    view.addSubview(emptyHeroesView)
+    emptyHeroesView.autoPinEdge(.leading, to: .leading, of: view, withOffset: 30)
+    emptyHeroesView.autoPinEdge(.trailing, to: .trailing, of: view, withOffset: -30)
+    emptyHeroesView.autoAlignAxis(.horizontal, toSameAxisOf: view, withOffset: -50)
   }
   
   // MARK: - View Controller life cycle.
@@ -54,18 +87,33 @@ class HeroesViewController: BaseViewController {
     self.title = "Marvel Heroes App"
         
     configureTableView()
-    
-    presenter.delegate = self
-    presenter.fetchHeroes()
+    configureEmptyHeroesView()
+    configurePresenter()
   }
   
-  // MARK: - UI config.
+  // MARK: - UI and presenter config.
   
   private func configureTableView() {
     tableView.register(HeroesTableViewCell.self, forCellReuseIdentifier: HeroesTableViewCell.reuseIdentifier)
     
     tableView.dataSource = self
     tableView.delegate = self
+  }
+  
+  private func configureEmptyHeroesView() {
+    emptyHeroesViewButton.addTarget(self, action: #selector(findHeroesButtonPressed), for: .touchUpInside)
+    
+    emptyHeroesView.isHidden = true
+  }
+  
+  private func configurePresenter() {
+    presenter.delegate = self
+    presenter.fetchHeroes()
+  }
+  
+  // MARK: - Actions.
+  @objc func findHeroesButtonPressed() {
+    presenter.fetchHeroes()
   }
 }
 
@@ -117,5 +165,13 @@ extension HeroesViewController: HeroesPresenterDelegate {
   
   func showError(_ presenter: HeroesPresenter, errorMessage: String) {
     showError(errorMessage: errorMessage)
+  }
+  
+  func showEmptyHeroesView(_ presenter: HeroesPresenter) {
+    emptyHeroesView.isHidden = false
+  }
+  
+  func hideEmptyHeroesView(_ presenter: HeroesPresenter) {
+    emptyHeroesView.isHidden = true
   }
 }
