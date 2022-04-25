@@ -7,12 +7,12 @@ The app consumes the [Marvel API](https://developer.marvel.com/docs#!/public/get
 ## App Features
 * Networking: The Home Screen displays a list of characters that is loaded from the endpoint /v1/public/characters. If there is and error on the first load, the user can retry as many times as needed without having to repoen the app.
 * Pagination: The user can scroll the list and more characters will be loaded every time the bottom of the list is reached.
-* Navigation: The user can select a Character and navigate to a detail, where more info from the characters is displayed.
+* Navigation: The user can select a character and navigate to a detail, where more info from the characters is displayed.
 
 ## Architecture
 I used Model View Presenter + Coordinator for the app. This mix of patterns allows me to write testable code from the begining, mainly focusing on testing the model entities and the presenters. If enforces a clear separation of concerns, helping to keep views as simple as possible, and encapsulating the business logic in the presenters. The Coordinator pattern suggests to use a coordinator class to handle navigation logic, taking that responsibility away from the view controllers.
 
-# Third party libraries
+## Third party libraries
 I'm comfortable writing UI programmatically, and i use [Pure Layout](https://github.com/PureLayout/PureLayout) to manage all the logic related to auto layout. I have been using this library for many years, and if find it simple to use and very powerful.
 
 For image loading, i use [Kingfisher](https://github.com/onevcat/Kingfisher). It has many built in features for image downloading and for caching, and since it adds an extension to UIImageView, it's pretty straightforward to use.
