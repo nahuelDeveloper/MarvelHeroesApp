@@ -17,7 +17,7 @@ I'm comfortable writing UI programmatically, and i use [Pure Layout](https://git
 
 For image loading, i use [Kingfisher](https://github.com/onevcat/Kingfisher). It has many built in features for image downloading and for caching, and since it adds an extension to UIImageView, it's pretty straightforward to use.
 
-For networking, i choose [Moya](https://github.com/Moya/Moya). I have seen and implemented miself very different ways to handle networking, and i believe that with Moya, there are many advantages. I specially appreciate the use of enums with values for each endpoint, because it helps to keep the code simple and easy to understand and mantain.
+For networking, i choose [Moya](https://github.com/Moya/Moya). I have seen and implemented myself very different ways to handle networking, and i believe that with Moya, there are many advantages. I specially appreciate the use of enums with values for each endpoint, because it helps to keep the code simple and easy to understand and mantain.
 
 Last but not least, i like to use [JGProgressHUD](https://github.com/JonasGessner/JGProgressHUD) to display a simple and highly customizable loader.
 
